@@ -7,3 +7,11 @@
 ![HabrExample 1](http://storage5.static.itmages.ru/i/16/0721/h_1469093205_7184148_f474e2dae3.png)
 ![HabrExample 2](http://storage5.static.itmages.ru/i/16/0721/h_1469093205_3319567_62e78868f8.png)
 ![HabrExample 3](http://storage4.static.itmages.ru/i/16/0721/h_1469093200_4283351_e7af337ab9.png)
+##Пример использования:
+```HTML
+<div id="logo">𝞅</div>
+```
+```JavaScript
+drawFlatShadow(document.getElementById("logo"), 100, "rgb(40,160,110)");
+```
+![Example 1](http://storage6.static.itmages.ru/i/16/0721/h_1469096290_2520834_b1b399132d.png)
