@@ -19,3 +19,13 @@ drawFlatShadow(document.getElementById("logo"), 100, "rgb(40,160,110)");
 ```
 ###Результат:
 ![Example 1](http://storage6.static.itmages.ru/i/16/0721/h_1469096290_2520834_b1b399132d.png)
+##Описание функции:
+```JavaScript
+drawFlatShadow(object, shadowLenght = 100, shadowColor = "#CCC", shadowBefore = "", shadowAfter = "0 0 0 #000")
+```
+##Варианты использования:
+```JavaScript
+drawFlatShadow(document.getElementById("logo")) // Рисует тень для объекта с id logo. Длина: 100, Цвет: #CCC
+drawFlatShadow(document.getElementById("logo"), 50) // Длина: 50, Цвет: #CCC
+drawFlatShadow(document.getElementById("logo"), 50, "#ADA") // Длина: 50, Цвет: #ADA
+```
