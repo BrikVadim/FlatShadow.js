@@ -28,4 +28,5 @@ drawFlatShadow(object, shadowLenght = 100, shadowColor = "#CCC", shadowBefore = 
 drawFlatShadow(document.getElementById("logo")) // Рисует тень для объекта с id logo. Длина: 100, Цвет: #CCC
 drawFlatShadow(document.getElementById("logo"), 50) // Длина: 50, Цвет: #CCC
 drawFlatShadow(document.getElementById("logo"), 50, "#ADA") // Длина: 50, Цвет: #ADA
+drawFlatShadow($("#logo"), 50, "#ADA") // jQuery
 ```
