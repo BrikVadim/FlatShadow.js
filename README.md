@@ -17,5 +17,5 @@ drawFlatShadow( объект, длина тени, цвет тени )
 ```JavaScript
 drawFlatShadow(document.getElementById("logo"), 100, "rgb(40,160,110)");
 ```
-Результат:
+###Результат:
 ![Example 1](http://storage6.static.itmages.ru/i/16/0721/h_1469096290_2520834_b1b399132d.png)
