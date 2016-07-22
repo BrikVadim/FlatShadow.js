@@ -1,3 +1,50 @@
+'use strict';
+
+function drawShadow(object, shadowType = ShadowType.box, shadowLenght = 100,
+                    shadowColor = "#CCC", angle = 45, shadowBefore = "",
+                    shadowAfter = "0 0 0 #000") {
+  let DegToRad = deg => deg * Math.PI/180;
+  var angleX, angleY, shadowStyle = "";
+
+  switch (angle) {
+    case 90:
+      angleX = 1; angleY = 0;
+      break;
+    case 180:
+      angleX = 0; angleY = -1;
+      break;
+    case 270:
+      angleX = -1; angleY = 0;
+      break;
+    case 360:
+      angleX = 0; angleY = 1;
+      break;
+    default:
+      angleY = Math.cos(DegToRad(angle));
+      angleX = Math.sin(DegToRad(angle));
+  }
+
+  for (var i = 0; i < shadowLenght; i++)
+    shadowStyle += i * angleX + "px " + i * angleY + "px " + shadowColor + ",";
+
+  shadowStyle = shadowStyle.substring(0, shadowStyle.length - 1);
+
+  switch (shadowType) {
+    case 0:
+      object.style.boxShadow = shadowStyle;
+      break;
+    case 1:
+      object.style.textShadow = shadowStyle;
+      break;
+    case 2:
+      object.style.boxShadow = shadowStyle;
+      object.style.textShadow = shadowStyle;
+      break;
+    default:
+      console.log("Invalid shadowType... Use 'ShadowType.box' or 'ShadowType.text'... ");
+  }
+}
+
 function drawBoxShadow(object, shadowLenght = 100, shadowColor = "#CCC",
                        angle = "B", shadowBefore = "", shadowAfter = "0 0 0 #000") {
   object.style.boxShadow = parseShadowStyle(shadowLenght, shadowColor,angle,
@@ -12,46 +59,45 @@ function drawTextShadow(object, shadowLenght = 100, shadowColor = "#CCC",
 
 function parseShadowStyle(shadowLenght = 100, shadowColor = "#CCC",
                           angle = "B", shadowBefore = "", shadowAfter = "0 0 0 #000") {
+  function parseXY(x, y) {
+    for (var i = 0; i < shadowLenght; i++)
+      shadowBefore += i * x + "px " + i * y + "px " + shadowColor + ",\n";
+  }
   var anglesArray = angle.split('');
   shadowBefore = shadowBefore != "" ? shadowBefore + ',' : "";
 
   anglesArray.forEach(function(item) {
     switch (item) {
-      case 'B':
-        for (var i = 0; i != shadowLenght; i++)
-          shadowBefore += i + "px " + i + "px 0px " + shadowColor + ",\n";
+      case 'B': parseXY(-1, 1);
         break;
-      case 'T':
-        for (var i = 0; i != -shadowLenght; i--)
-          shadowBefore += i + "px " + i + "px 0px " + shadowColor + ",\n";
+      case 'T': parseXY(1, -1);
         break;
-      case 'R':
-        for (var i = 0; i != shadowLenght; i++)
-          shadowBefore += i + "px " + (-i) + "px 0px " + shadowColor + ",\n";
+      case 'R': parseXY(1, 1);
         break;
-      case 'L':
-        for (var i = 0; i != -shadowLenght; i--)
-          shadowBefore += i + "px " + (-i) + "px 0px " + shadowColor + ",\n";
+      case 'L': parseXY(-1, -1);
         break;
-      case 'b':
-        for (var i = 0; i != shadowLenght; i++)
-          shadowBefore += "0px " + i + "px 0px " + shadowColor + ",\n";
+      case 'b': parseXY(0, 1);
         break;
-      case 't':
-        for (var i = 0; i != -shadowLenght; i--)
-          shadowBefore += "0px " + i + "px 0px " + shadowColor + ",\n";
+      case 't': parseXY(0, -1);
         break;
-      case 'r':
-        for (var i = 0; i != shadowLenght; i++)
-          shadowBefore += i + "px 0px 0px " + shadowColor + ",\n";
+      case 'r': parseXY(1, 0);
         break;
-      case 'l':
-        for (var i = 0; i != -shadowLenght; i--)
-          shadowBefore += i + "px 0px 0px " + shadowColor + ",\n";
+      case 'l': parseXY(-1, 0);
         break;
     }
   });
   return shadowBefore + shadowAfter;
+}
+
+/*
+ * -----------------------------------------------------------------------------
+ * -----------------------------------------------------------------------------
+ */
+
+let ShadowType = {
+  "box"   : 0,
+  "text"  : 1,
+  "all"   : 2
 }
 
 /*
