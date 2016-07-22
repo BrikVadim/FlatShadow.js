@@ -36,10 +36,11 @@ drawShadow(document.getElementById("cw"), ShadowType.Box, 200, "white", 280);
 ![HabrExample 2](http://storage5.static.itmages.ru/i/16/0721/h_1469093205_3319567_62e78868f8.png)
 ![HabrExample 3](http://storage4.static.itmages.ru/i/16/0721/h_1469093200_4283351_e7af337ab9.png)
 ##Пример использования:
-drawBoxShadow( объект, длина тени, цвет, угол, стиль до тени, стиль после тени )
-drawTextShadow( объект, длина тени, цвет, угол, стиль до тени, стиль после тени )
-parseShadowStyle( длина тени, цвет, угол, стиль до тени, стиль после тени )
-drawFlatShadow( объект, длина тени, цвет тени )
+* drawShadow( объект, тип тени (text, box, all) , длина тени, цвет, угол (Число), стиль до тени, стиль после тени )
+* drawBoxShadow( объект, длина тени, цвет, угол (Строка), стиль до тени, стиль после тени )
+* drawTextShadow( объект, длина тени, цвет, угол (Строка), стиль до тени, стиль после тени )
+* parseShadowStyle( длина тени, цвет, угол (Строка), стиль до тени, стиль после тени )
+* drawFlatShadow( объект, длина тени, цвет тени )
 
 ###Варианты angle
 
