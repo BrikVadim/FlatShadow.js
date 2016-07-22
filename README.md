@@ -2,9 +2,9 @@
 ![Flat Shadow](http://storage3.static.itmages.ru/i/16/0721/h_1469088856_9927674_ffc2e1f0b7.png)
 ###Генератор плоских теней на чистом JavaScript
 ##Новое в версии 0.2.1
-*Примененте тени не только к тексту (drawTextShadow, drawBoxShadow)
-*Изменение направления тени
-*Использование нескольких теней
+* Примененте тени не только к тексту (drawTextShadow, drawBoxShadow)
+* Изменение направления тени
+* Использование нескольких теней
 ##Логотип Google Chrome с помощью FlatShadow.js
 ![Google Chrome Logo](http://storage9.static.itmages.ru/i/16/0722/h_1469165511_8914631_724befd6d6.png)
 ##Текстовое поле с плоской тенью:
