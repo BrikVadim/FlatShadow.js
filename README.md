@@ -1,8 +1,15 @@
-# FlatShadow.js v0.2.1
+# FlatShadow.js v0.2.2
 ![Flat Shadow](http://storage3.static.itmages.ru/i/16/0721/h_1469088856_9927674_ffc2e1f0b7.png)
 ###Генератор плоских теней на чистом JavaScript
-##Новое в версии 0.2.1:
+##Новое в версии 0.2:
+### 0.2.2:
+* Добавлена универсальная функция drawShadow;
+* Добавлена возможность указывать произвольный угол наклона тени (для функции drawShadow);
+* Добавлена возможность выбора типа тени (box, text, all) (для функции drawShadow);
+* Добавлена сжатая версия (flatShadow.min.js);
+* Переработан код;
 
+### 0.2.1:
 * Примененте тени не только к тексту (drawTextShadow, drawBoxShadow);
 * Изменение направления тени;
 * Использование нескольких теней;
@@ -14,6 +21,13 @@ drawBoxShadow(document.getElementById("flat"), 120, "rgb(220,84,75)", "TtRr",
   parseShadowStyle(120, "rgb(254,205,82)", "rbB",
     parseShadowStyle(120, "rgb(37,160,97)", "Ll",
       parseShadowStyle(120, "rgb(220,84,75)", "T"))));
+```
+##Часы с помощью FlatShadow.js
+![Watch](http://storage2.static.itmages.ru/i/16/0722/h_1469188503_3671323_71ab72044c.png)
+```JavaScript
+drawShadow(document.getElementById("cr"), ShadowType.Box, 500, "red", 130);
+drawShadow(document.getElementById("ce"), ShadowType.Box, 350, "white", 30);
+drawShadow(document.getElementById("cw"), ShadowType.Box, 200, "white", 280);
 ```
 ##Текстовое поле с плоской тенью:
 ![Example 1](http://storage3.static.itmages.ru/i/16/0721/h_1469089627_4831789_e8080801fa.jpg)
@@ -48,8 +62,10 @@ drawFlatShadow(document.getElementById("logo"), 100, "rgb(40,160,110)");
 ```
 ###Результат:
 ![Example 1](http://storage6.static.itmages.ru/i/16/0721/h_1469096290_2520834_b1b399132d.png)
-##Описание функции:
+##Описание функций:
 ```JavaScript
+drawShadow(object, shadowType = ShadowType.box, shadowLenght = 100, shadowColor = "#CCC", angle = 45, shadowBefore = "", shadowAfter = "0 0 0 #000")
+
 drawBoxShadow(object, shadowLenght = 100, shadowColor = "#CCC", angle = "B", shadowBefore = "", shadowAfter = "0 0 0 #000")
 drawTextShadow(object, shadowLenght = 100, shadowColor = "#CCC", angle = "B", shadowBefore = "", shadowAfter = "0 0 0 #000")
 parseShadowStyle(shadowLenght = 100, shadowColor = "#CCC", angle = "B", shadowBefore = "", shadowAfter = "0 0 0 #000")
