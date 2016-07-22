@@ -4,7 +4,7 @@ function drawShadow(object, shadowType = ShadowType.box, shadowLenght = 100,
                     shadowColor = "#CCC", angle = 45, shadowBefore = "",
                     shadowAfter = "0 0 0 #000") {
   let DegToRad = deg => deg * Math.PI/180;
-  var angleX, angleY, shadowStyle = "";
+  var angleX, angleY;
 
   switch (angle) {
     case 90:
@@ -25,9 +25,9 @@ function drawShadow(object, shadowType = ShadowType.box, shadowLenght = 100,
   }
 
   for (var i = 0; i < shadowLenght; i++)
-    shadowStyle += i * angleX + "px " + i * angleY + "px " + shadowColor + ",";
+    shadowBefore += i * angleX + "px " + i * angleY + "px " + shadowColor + ",";
 
-  shadowStyle = shadowStyle.substring(0, shadowStyle.length - 1);
+  var shadowStyle = shadowBefore + shadowAfter;
 
   switch (shadowType) {
     case 0:
