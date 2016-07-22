@@ -86,3 +86,21 @@ drawFlatShadow(document.getElementById("logo")) // Рисует тень для 
 drawFlatShadow(document.getElementById("logo"), 50) // Длина: 50, Цвет: #CCC
 drawFlatShadow(document.getElementById("logo"), 50, "#ADA") // Длина: 50, Цвет: #ADA
 ```
+
+## Простой пример:
+
+```HTML
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script type="text/javascript" src="flatShadow.js"></script>
+  </head>
+  <body>
+    <input id="flat" style="padding-bottom: 0; font-size: 72px; border: 0; border-bottom: 2px solid black;">
+    <script>
+      drawFlatShadow(document.getElementById("flat"), 100, "#CCC");
+    </script>
+  </body>
+</html>
+```
