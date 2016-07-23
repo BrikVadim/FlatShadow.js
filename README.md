@@ -3,7 +3,7 @@
 ###Генератор плоских теней на чистом JavaScript
 ##Новое в версии 0.2:
 ### 0.2.3.beta-1:
-* Тень по функции (требуется доработка) 
+* Тень по формуле (требуется доработка) 
 
 ### 0.2.2:
 * Добавлена универсальная функция drawShadow;
@@ -17,6 +17,10 @@
 * Изменение направления тени;
 * Использование нескольких теней;
 
+##Teнь по формуле (beta)
+![Func Shadow 1](http://storage1.static.itmages.ru/i/16/0723/h_1469256426_8302389_021d8fa4d6.png)
+![Func Shadow 2](http://storage1.static.itmages.ru/i/16/0723/h_1469256426_5587485_7e0705d522.png)
+![Func Shadow 3](http://storage1.static.itmages.ru/i/16/0723/h_1469256426_4191473_a2b5b348eb.png)
 ##Логотип Google Chrome с помощью FlatShadow.js
 ![Google Chrome Logo](http://storage9.static.itmages.ru/i/16/0722/h_1469165511_8914631_724befd6d6.png)
 ```JavaScript
@@ -38,6 +42,8 @@ drawShadow(document.getElementById("cw"), ShadowType.Box, 200, "white", 280);
 ![HabrExample 1](http://storage5.static.itmages.ru/i/16/0721/h_1469093205_7184148_f474e2dae3.png)
 ![HabrExample 2](http://storage5.static.itmages.ru/i/16/0721/h_1469093205_3319567_62e78868f8.png)
 ![HabrExample 3](http://storage4.static.itmages.ru/i/16/0721/h_1469093200_4283351_e7af337ab9.png)
+## Прозрачная тень:
+![RealShadow](http://storage9.static.itmages.ru/i/16/0723/h_1469256426_1550657_f295a681a1.png)
 ##Пример использования:
 * drawShadow( объект, тип тени (text, box, all) , длина тени, цвет, угол (Число), стиль до тени, стиль после тени )
 * drawBoxShadow( объект, длина тени, цвет, угол (Строка), стиль до тени, стиль после тени )
