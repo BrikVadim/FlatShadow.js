@@ -1,10 +1,33 @@
 'use strict';
 
+function drawShadowByFunc(object, fnx, fny, shadowType = ShadowType.box, shadowLenght = 100, shadowColor = "#CCC") {
+  var shadowBefore = "";
+  for (var i = 0; i < shadowLenght; i++)
+    shadowBefore += fnx(i) + "px " + fny(i) + "px " + shadowColor + ",";
+
+  switch (shadowType) {
+    case 0:
+      object.style.boxShadow = shadowBefore + "0 0 #000";
+      break;
+    case 1:
+      object.style.textShadow = shadowBefore + "0 0 #000";
+      break;
+    case 2:
+      object.style.boxShadow = shadowBefore + "0 0 #000";
+      object.style.textShadow = shadowBefore + "0 0 #000";
+      break;
+    default:
+      console.log("Invalid shadowType... Use 'ShadowType.box' or 'ShadowType.text'... ");
+  }
+}
+
 function drawShadow(object, shadowType = ShadowType.box, shadowLenght = 100,
                     shadowColor = "#CCC", angle = 45, shadowBefore = "",
                     shadowAfter = "0 0 0 #000") {
   let DegToRad = deg => deg * Math.PI/180;
   var angleX, angleY;
+
+  shadowBefore = shadowBefore != "" ? shadowBefore + ',' : "";
 
   switch (angle) {
     case 90:
