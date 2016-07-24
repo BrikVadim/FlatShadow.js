@@ -1,3 +1,9 @@
+/*
+ *  flatShadow.js 0.3
+ *  Генератор плоских теней на чистом JavaScript
+ *  © Вадим Брик, 2016
+ */
+
 'use strict';
 
 const ShadowType = {
