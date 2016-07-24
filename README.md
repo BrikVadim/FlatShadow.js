@@ -27,7 +27,7 @@
 ![Example 1](http://storage6.static.itmages.ru/i/16/0721/h_1469096290_2520834_b1b399132d.png)
 
 ##Пример использования:
-* **func**  drawShadow( элемент, экземпляр класса Shadow )
+* **func**  drawShadow( элемент, экземпляр класса Shadow, ... )
 * **class** Shadow ( тип, длина, цвет, угол )
 
 ##Описание функций:
