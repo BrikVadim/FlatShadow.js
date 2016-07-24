@@ -27,8 +27,8 @@
 ![Example 1](http://storage6.static.itmages.ru/i/16/0721/h_1469096290_2520834_b1b399132d.png)
 
 ##Пример использования:
-* drawShadow( объект, экземпляр класса Shadow )
-* Shadow ( тип, длина, цвет, угол )
+* **func**  drawShadow( объект, экземпляр класса Shadow )
+* **class** Shadow ( тип, длина, цвет, угол )
 
 ##Описание функций:
 ```JavaScript
