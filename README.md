@@ -1,16 +1,17 @@
-# FlatShadow.js v0.4
+# FlatShadow.js v0.5
 ![Flat Shadow](http://storage3.static.itmages.ru/i/16/0721/h_1469088856_9927674_ffc2e1f0b7.png)
 ###Генератор плоских теней на чистом JavaScript
-## Новое в версии 0.4:
-* Возможность применять к коллекции эелементов
-* Уменьшен размер кода
+## Новое в версии 0.5:
+* Добавлена доработанная **'Тень по формуле'**;
+* Добавлен класс FuncShadow;
 * и т.д.
 
-##Teнь по формуле beta (версия 0.2.3)
-![Func Shadow 1](http://storage1.static.itmages.ru/i/16/0723/h_1469256426_8302389_021d8fa4d6.png)
+## Тень по формуле 
+### Teнь по формуле (версия 0.5)
+![Func Shadow 1](http://storage6.static.itmages.ru/i/16/0725/h_1469451190_5587496_d1564a7f1f.png)
+### Teнь по формуле beta (версия 0.2.3)
 ![Func Shadow 2](http://storage1.static.itmages.ru/i/16/0723/h_1469256426_5587485_7e0705d522.png)
-![Func Shadow 3](http://storage1.static.itmages.ru/i/16/0723/h_1469256426_4191473_a2b5b348eb.png)
-##Логотип Google Chrome с помощью FlatShadow.js
+## Логотип Google Chrome с помощью FlatShadow.js
 ![Google Chrome Logo](http://storage9.static.itmages.ru/i/16/0722/h_1469165511_8914631_724befd6d6.png)
 ##Часы с помощью FlatShadow.js
 ![Watch](http://storage2.static.itmages.ru/i/16/0722/h_1469188503_3671323_71ab72044c.png)
@@ -25,7 +26,7 @@
 ![Example 1](http://storage6.static.itmages.ru/i/16/0721/h_1469096290_2520834_b1b399132d.png)
 
 ##Пример использования:
-* **func**  drawShadow( элемент, экземпляр класса Shadow, ... )
+* **func**  drawShadow( элемент, экземпляр класса Shadow(FuncShadow), ... )
 * **class** Shadow ( тип, длина, цвет, угол )
 
 ##Описание функций:
