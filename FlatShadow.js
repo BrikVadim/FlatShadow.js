@@ -1,5 +1,5 @@
 /*
- *  flatShadow.js 0.3
+ *  flatShadow.js 0.4
  *  Генератор плоских теней на чистом JavaScript
  *  © Вадим Брик, 2016
  */
@@ -13,7 +13,7 @@ const ShadowType = {
 }
 
 class Shadow {
-  constructor(type = ShadowType.box, lenght = 100, color = "#CCC", angle = 45) {
+  constructor(type = ShadowType.box, lenght = 100, color = `#CCC`, angle = 45) {
     this.lenght = lenght;
     this.angle  = angle;
     this.color  = color;
@@ -22,10 +22,15 @@ class Shadow {
 }
 
 function drawShadow(element, ...shadow) {
+  function applyStyle(el) {
+    el.style.boxShadow  = boxStyle.substring (0, boxStyle.length  - 1);
+    el.style.textShadow = textStyle.substring(0, textStyle.length - 1);
+  }
   let DegToRad = deg => deg * Math.PI/180,
-  textStyle = "", boxStyle = "", angleX, angleY;
+      textStyle = ``, boxStyle = ``,
+      angleX, angleY;
 
-  shadow.forEach(function(item) {
+  for (let item of shadow) {
     switch (item.angle) {
       case 90:
         angleX = 1; angleY = 0;
@@ -60,9 +65,15 @@ function drawShadow(element, ...shadow) {
         }
         break;
       default:
-        console.log("Invalid shadowType... Use 'ShadowType.box' or 'ShadowType.text'... ");
+        console.log(`Invalid shadowType...
+                      Use 'ShadowType.box' or 'ShadowType.text'... `);
     }
-  });
-  element.style.boxShadow  = boxStyle.substring(0, boxStyle.length - 1);
-  element.style.textShadow = textStyle.substring(0, textStyle.length - 1);
+  }
+
+  if (element.length === undefined)
+    applyStyle(element);
+  else
+    Array.prototype.forEach.call(element, function(item) {
+      applyStyle(item);
+    });
 }
