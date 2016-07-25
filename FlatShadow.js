@@ -1,10 +1,13 @@
 /*
- *  flatShadow.js 0.4
+ *  flatShadow.js 0.5
  *  Генератор плоских теней на чистом JavaScript
  *  © Вадим Брик, 2016
  */
 
 'use strict';
+
+let simpleX = i => i,
+    simpleY = i => i;
 
 const ShadowType = {
   box   : 0,
@@ -21,14 +24,30 @@ class Shadow {
   }
 }
 
+class FuncShadow {
+  constructor(fnX = simpleX, fnY = simpleY, type = ShadowType.box, lenght = 100,
+              color = `#CCC`, angle = 45) {
+    this.lenght = lenght;
+    this.angle  = angle;
+    this.color  = color;
+    this.type   = type;
+    this.fnX    = fnX;
+    this.fnY    = fnY;
+  }
+}
+
 function drawShadow(element, ...shadow) {
   function applyStyle(el) {
     el.style.boxShadow  = boxStyle.substring (0, boxStyle.length  - 1);
     el.style.textShadow = textStyle.substring(0, textStyle.length - 1);
   }
   let DegToRad = deg => deg * Math.PI/180,
-      textStyle = ``, boxStyle = ``,
-      angleX, angleY;
+      getStyle = (i, item) => `
+        ${(temp = item.constructor == FuncShadow ? item.fnX(i) : i) * angleX}px
+        ${(temp = item.constructor == FuncShadow ? item.fnY(i) : i) * angleY}px
+        ${item.color},`,
+      textStyle = ``, boxStyle  = ``,
+      angleX, angleY, temp;
 
   for (let item of shadow) {
     switch (item.angle) {
@@ -52,16 +71,16 @@ function drawShadow(element, ...shadow) {
     switch (item.type) {
       case 0:
         for (let i = 0; i < item.lenght; i++)
-          boxStyle  += `${i * angleX}px ${i * angleY}px ${item.color},`;
+          boxStyle  += getStyle(i, item);
         break;
       case 1:
         for (let i = 0; i < item.lenght; i++)
-          textStyle += `${i * angleX}px ${i * angleY}px ${item.color},`;
+          textStyle += getStyle(i, item);
         break;
       case 2:
         for (let i = 0; i < item.lenght; i++) {
-          boxStyle  += `${i * angleX}px ${i * angleY}px ${item.color},`;
-          textStyle += `${i * angleX}px ${i * angleY}px ${item.color},`;
+          boxStyle  += getStyle(i, item);
+          textStyle += getStyle(i, item);
         }
         break;
       default:
