@@ -1,5 +1,5 @@
 /*
- *  flatShadow.js 0.5.1
+ *  flatShadow.js 0.5.2
  *  Генератор плоских теней на чистом JavaScript
  *  © Вадим Брик, 2016
  */
@@ -43,8 +43,8 @@ function drawShadow(element, ...shadow) {
   }
   let DegToRad = deg => deg * Math.PI/180,
       getStyle = (i, item) => `
-        ${(temp = item.constructor == FuncShadow ? item.fnX(i) : i) * angleX}px
-        ${(temp = item.constructor == FuncShadow ? item.fnY(i) : i) * angleY}px
+        ${(temp = item instanceof FuncShadow ? item.fnX(i) : i) * angleX}px
+        ${(temp = item instanceof FuncShadow ? item.fnY(i) : i) * angleY}px
         ${item.color},`,
       textStyle = ``, boxStyle  = ``,
       angleX, angleY, temp;
@@ -89,10 +89,10 @@ function drawShadow(element, ...shadow) {
     }
   }
 
-  if (element.length === undefined)
-    applyStyle(element);
-  else
+  if ({}.toString.call(element) == "[object HTMLCollection]")
     Array.prototype.forEach.call(element, function(item) {
       applyStyle(item);
     });
+  else
+    applyStyle(element);
 }
