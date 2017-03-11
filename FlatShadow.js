@@ -1,123 +1,52 @@
 /*
- *  flatShadow.js 0.6.0
+ *  flatShadow.js 0.5.2 FuncShadow Branch
  *  Генератор плоских теней на чистом JavaScript
  *  © Вадим Брик, 2016
  */
 
-const ShadowType = {
-    box   : 0,
-    text  : 1,
-    all   : 2
-}
+'use strict';
 
-const ShadowDirection = {
-    down        : 0,
-    downRight   : 45,
-    right       : 90,
-    topRight    : 135,
-    top         : 180,
-    topLeft     : 225,
-    left        : 270,
-    downLeft    : 315
+let simpleX = i => i,
+    simpleY = i => i;
+
+const ShadowType = {
+  box   : 0,
+  text  : 1,
+  all   : 2
 }
 
 class Shadow {
-    constructor(lenght = 100, color = `#CCC`, angle = ShadowDirection.downRight) {
-        this.lenght = lenght;
-        this.angle  = angle;
-        this.color  = color;
-    }
+  constructor(type = ShadowType.box, lenght = 100, color = `#CCC`, angle = 45) {
+    this.lenght = lenght;
+    this.angle  = angle;
+    this.color  = color;
+    this.type   = type;
+  }
 }
 
-class BoxShadow extends Shadow {
-    constructor(lenght = 100, color = `#CCC`, angle = ShadowDirection.downRight) {
-        super(lenght, color, angle);
-        this.type = ShadowType.box;
-    }
-}
-
-class TextShadow extends Shadow {
-    constructor(lenght = 100, color = `#CCC`, angle = ShadowDirection.downRight) {
-        super(lenght, color, angle);
-        this.type = ShadowType.text;
-    }
+class FuncShadow {
+  constructor(fnX = simpleX, fnY = simpleY, type = ShadowType.box, lenght = 100,
+              color = `#CCC`, angle = 45) {
+    this.lenght = lenght;
+    this.angle  = angle;
+    this.color  = color;
+    this.type   = type;
+    this.fnX    = fnX;
+    this.fnY    = fnY;
+  }
 }
 
 function drawShadow(element, ...shadow) {
-    const applyStyle = el => {
-        el.style.boxShadow  = boxStyle .slice(0, -1);
-        el.style.textShadow = textStyle.slice(0, -1);
-    }
-
-    const applyStyles = el => {
-        Array.prototype.forEach.call(el, function(item) {
-            applyStyle(item);
-        });
-    }
-
-    const DegToRad = deg => deg * Math.PI/180;
-    const getStyle = (i, item) => `${i * angleX}px ${i * angleY}px ${item.color},`;
-
-    const elementIsHTMLCollection = {}.toString.call(element) == "[object HTMLCollection]";
-
-    let textStyle = ``;
-    let boxStyle  = ``;
-
-    let angleX;
-    let angleY;
-
-    for (let item of shadow) {
-        switch (item.angle) {
-            case ShadowDirection.right:
-                angleX = 1; angleY = 0;
-                break;
-            case ShadowDirection.top:
-                angleX = 0; angleY = -1;
-                break;
-            case ShadowDirection.left:
-                angleX = -1; angleY = 0;
-                break;
-            case ShadowDirection.down:
-                angleX = 0; angleY = 1;
-                break;
-            default:
-                angleY = Math.cos(DegToRad(item.angle));
-                angleX = Math.sin(DegToRad(item.angle));
-        }
-
-        switch (item.type) {
-            case ShadowType.box:
-                for (let i = 0; i < item.lenght; i++) {
-                    boxStyle  += getStyle(i, item);
-                }
-                break;
-            case ShadowType.text:
-                for (let i = 0; i < item.lenght; i++) {
-                    textStyle += getStyle(i, item);
-                }
-                break;
-            case ShadowType.all:
-                for (let i = 0; i < item.lenght; i++) {
-                    boxStyle  += getStyle(i, item);
-                    textStyle += getStyle(i, item);
-                }
-                break;
-            default:
-                console.error(`Invalid shadow type... Use 'ShadowType.box' or 'ShadowType.text'... `);
-        }
-    }
-
-    if (elementIsHTMLCollection) {
-        applyStyles(element);
-    } else {
-        applyStyle(element);
-    }
-}
-
-function clearShadow(element) {
-    element.style.textShadow = '';
-}
-
+  function applyStyle(el) {
+    el.style.boxShadow  = boxStyle.slice(0, -1);
+    el.style.textShadow = textStyle.slice(0, -1);
+  }
+  let DegToRad = deg => deg * Math.PI/180,
+      getStyle = (i, item) => `
+        ${(temp = item instanceof FuncShadow ? item.fnX(i) : i) * angleX}px
+        ${(temp = item instanceof FuncShadow ? item.fnY(i) : i) * angleY}px
+        ${item.color},`,
+      textStyle = ``, boxStyle  = ``,
       angleX, angleY, temp;
 
   for (let item of shadow) {
