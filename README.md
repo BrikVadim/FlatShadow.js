@@ -30,6 +30,7 @@
 * **func**  drawShadow( элемент, объект (BoxShadow/TextShadow), ... )
 * **class** TextShadow ( длина, цвет, угол )
 * **class** BoxShadow ( длина, цвет, угол )
+
 **old:**
 * **class** Shadow ( тип, длина, цвет, угол )
 * **class** FuncShadow ( функция для х, функция для у, тип, длина, цвет, угол )
