@@ -1,10 +1,11 @@
-# FlatShadow.js v0.5.2
+# FlatShadow.js v0.6.0
 ![Flat Shadow](http://storage3.static.itmages.ru/i/16/0721/h_1469088856_9927674_ffc2e1f0b7.png)
 ###Генератор плоских теней на чистом JavaScript
-## Новое в версии 0.5:
-* Добавлена доработанная **'Тень по формуле'**;
-* Добавлен класс FuncShadow;
-* и т.д.
+## Новое в версии 0.6:
+* Класс Shadow разделен на классы TextShadow и BoxShadow
+* Добавлена структура ShadowDirection
+* Добавлен метод clearShadow
+* Класс FuncShadow удален из **master** и выделен в отдельную ветку;
 
 ## Тень по формуле 
 ### Teнь по формуле (версия 0.5)
@@ -26,7 +27,10 @@
 ![Example 1](http://storage6.static.itmages.ru/i/16/0721/h_1469096290_2520834_b1b399132d.png)
 
 ##Пример использования:
-* **func**  drawShadow( элемент, экземпляр класса Shadow(FuncShadow), ... )
+* **func**  drawShadow( элемент, объект (BoxShadow/TextShadow), ... )
+* **class** TextShadow ( длина, цвет, угол )
+* **class** BoxShadow ( длина, цвет, угол )
+**old:**
 * **class** Shadow ( тип, длина, цвет, угол )
 * **class** FuncShadow ( функция для х, функция для у, тип, длина, цвет, угол )
 
@@ -37,11 +41,11 @@ drawShadow(element, ...shadow);
 ##Варианты использования:
 ```JavaScript
 // Тень с параметрами по умолчанию 
-drawShadow(document.getElementById("flat"), new Shadow);
+drawShadow(document.getElementById("flat"), new BoxShadow);
 // Тень с произвольными параметрами
-drawShadow(document.getElementById("flat"), new Shadow(ShadowType.box, 30, "#CCC", 150));
+drawShadow(document.getElementById("flat"), new BoxShadow(30, "#CCC", ShadowDirection.downRight));
 // Несколько теней с разными типами
-drawShadow(document.getElementById("flat"), new Shadow, new Shadow(ShadowType.text, 30, "#CCC", 150), new Shadow(ShadowType.all, 30, "#999", 240));
+drawShadow(document.getElementById("flat"), new BoxShadow, new TextShadow(30, "#CCC", 150), new TextShadow(30, "#999", 240));
 ```
 
 ## Простой пример:
@@ -56,7 +60,7 @@ drawShadow(document.getElementById("flat"), new Shadow, new Shadow(ShadowType.te
   <body>
     <h1 id="flat">Hello, FlatShadow.js!</h1>
     <script>
-      drawFlatShadow(document.getElementById("flat"), new Shadow);
+      drawFlatShadow(document.getElementById("flat"), new TextShadow);
     </script>
   </body>
 </html>
