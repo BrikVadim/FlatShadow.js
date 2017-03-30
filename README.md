@@ -14,11 +14,11 @@
 ![Func Shadow 2](http://storage1.static.itmages.ru/i/16/0723/h_1469256426_5587485_7e0705d522.png)
 ## Логотип Google Chrome с помощью FlatShadow.js
 ![Google Chrome Logo](http://storage9.static.itmages.ru/i/16/0722/h_1469165511_8914631_724befd6d6.png)
-##Часы с помощью FlatShadow.js
+## Часы с помощью FlatShadow.js
 ![Watch](http://storage2.static.itmages.ru/i/16/0722/h_1469188503_3671323_71ab72044c.png)
-##Текстовое поле с плоской тенью:
+## Текстовое поле с плоской тенью:
 ![Example 1](http://storage3.static.itmages.ru/i/16/0721/h_1469089627_4831789_e8080801fa.jpg)
-##Логотипы в стиле Habrahabr:
+## Логотипы в стиле Habrahabr:
 ![HabrExample 1](http://storage5.static.itmages.ru/i/16/0721/h_1469093205_7184148_f474e2dae3.png)
 ![HabrExample 2](http://storage5.static.itmages.ru/i/16/0721/h_1469093205_3319567_62e78868f8.png)
 ![HabrExample 3](http://storage4.static.itmages.ru/i/16/0721/h_1469093200_4283351_e7af337ab9.png)
