@@ -1,6 +1,6 @@
 # FlatShadow.js v0.6.0
 ![Flat Shadow](http://storage3.static.itmages.ru/i/16/0721/h_1469088856_9927674_ffc2e1f0b7.png)
-###Генератор плоских теней на чистом JavaScript
+### Генератор плоских теней на чистом JavaScript
 ## Новое в версии 0.6:
 * Класс Shadow разделен на классы TextShadow и BoxShadow
 * Добавлена структура ShadowDirection
@@ -26,7 +26,7 @@
 ![RealShadow](http://storage9.static.itmages.ru/i/16/0723/h_1469256426_1550657_f295a681a1.png)
 ![Example 1](http://storage6.static.itmages.ru/i/16/0721/h_1469096290_2520834_b1b399132d.png)
 
-##Пример использования:
+## Пример использования:
 * **func**  drawShadow( элемент, объект (BoxShadow/TextShadow), ... )
 * **class** TextShadow ( длина, цвет, угол )
 * **class** BoxShadow ( длина, цвет, угол )
@@ -35,11 +35,11 @@
 * **class** Shadow ( тип, длина, цвет, угол )
 * **class** FuncShadow ( функция для х, функция для у, тип, длина, цвет, угол )
 
-##Описание функций:
+## Описание функций:
 ```JavaScript
 drawShadow(element, ...shadow);
 ```
-##Варианты использования:
+## Варианты использования:
 ```JavaScript
 // Тень с параметрами по умолчанию 
 drawShadow(document.getElementById("flat"), new BoxShadow);
